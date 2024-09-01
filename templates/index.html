@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block 'main' %}
+
+<!--Main section start-->
+
+<div class="row" xmlns="http://www.w3.org/1999/html">
+    <div class="col-md-3">
+      <h3><code>Filter By Food Category</code></h3><hr>
+      <a href="/catfilter/1"><h5>Maharashtrian Dishes</h5></a><br>
+      <a href="/catfilter/2"><h5>SouthIndian Dishes</h5></a><br>
+      <a href="/catfilter/3"><h5>Gujarati Dishes</h5></a><br>
+      <a href="/catfilter/4"><h5>Chinese Dishes</h5></a><br>
+      <a href="/catfilter/5"><h5>Sweets</h5></a><br>
+      <a href="/catfilter/6"><h5>Non-veg Foods</h5></a><br>
+      <br>
+    </div><!--side bar end-->
+    <div class="col-md-9 p-3">
+      {% if errmsg %}
+      <div class="alert alert-danger">
+        {{errmsg}}
+      </div>
+      {% endif %}
+      <div class="row">
+        {% for x in data %}
+        <div class="col-md-3 mb-2">
+          <div class="card" style="width: 100%;">
+            <img src="{{x.pimage.url}}" class="card-img-top" alt="..." height="150px">
+            <div class="card-body">
+              <h5 class="card-title">{{x.name}}</h5>
+              <p class="card-text">{{x.price}}</p>
+              <a href="/Menudetail/{{x.id}}" class="btn btn-primary">See Details</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        </div>
+        </div>
+      </div>
+{% endblock 'main' %}

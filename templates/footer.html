@@ -1,0 +1,54 @@
+{% load static %}
+
+<footer class="bg-success text-light">
+    <div class="container py-4">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <h5>Quick Links</h5>
+                <a href="/index" class="text-warning" style="text-decoration: none;">Home</a><br>
+                <a href="/about" class="text-warning" style="text-decoration: none;">About</a><br>
+                <a href="/landing" class="text-warning" style="text-decoration: none;">Contact</a>
+            </div>
+            <div class="col-md-4 mb-4">
+                <h5>Follow Us</h5>
+                <a href="facebook.html" class="text-primary"><i class="bi bi-facebook" style="padding:5px;"></i></a>
+                <a href="instagram.html" class="text-danger"><i class="bi bi-instagram" style="padding:5px;"></i></a>
+                <a href="twitter.html" class="text-primary"><i class="bi bi-twitter" style="padding:5px;"></i></a>
+                <a href="whatsapp.html" class="text-danger"><i class="bi bi-whatsapp" style="padding:5px;"></i></a>
+
+            </div>
+            <div class="contactform">
+                <form method="post" action="" id="contact" role="form">
+                    {% csrf_token %}
+                    <h2>Send Message</h2>
+                    <div class="inputbox">
+                        <input type="text" name="name" required="required">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="email" name="email" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputbox">
+                        <textarea required="required" name="message"></textarea>
+                        <span>Type Your Message...</span>
+                    </div>
+                    <div class="inputbox">
+                        <input type="submit" name="" value="Send" class="btn btn-danger">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <hr class="bg-warning">
+        <div class="row">
+            <div class="col-md-12 text-center mt-4">
+                <p><h5> Food-Hub   All Rights Reserved.</h5></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--footer end-->
+<script src="{% static 'js\bootstrap.min.js' %}"></script>
+<script src="{% static 'js\popper.js' %}"></script>
+</body>
+</html>

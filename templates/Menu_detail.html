@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block 'main' %}
+<div class="row mt-3">
+    <div class="col-md-9 mx-auto">
+        <div class="row">
+            {% for x in data %}
+            <div class="col-md-5">
+                <img src="{{x.pimage.url}}" class="card-img-top" alt="...">
+            </div>
+            <div class="col-md-7">
+                {% if msg %}
+                <div class="alert alert-success">
+                    {{msg}}
+                </div>
+                {% endif %}
+
+                {% if errmsg %}
+                <div class="alert alert-danger">
+                    {{errmsg}}
+                </div>
+                {% endif %}
+
+                <p><b>Name: </b>{{x.name}}</p>
+                <p><b> Details: </b>{{x.pdetail}}</p>
+                {% if x.cat == 1 %}
+                    <p><b>Food Category: </b>Maharashtrian Dishes</p>
+                {% elif x.cat == 2 %}
+                    <p><b>Food Category: </b>SouthIndian Dishes</p>
+                {% elif x.cat == 3 %}
+                    <p><b>Food Category: </b>Gujarati Dishes</p>
+                {% elif x.cat == 4 %}
+                    <p><b>Food Category: </b>Chinese Dishes</p>
+                {% elif x.cat == 5 %}
+                    <p><b>Food Category: </b>Sweets</p>
+                {% else %}
+                    <p><b>Food Category: </b>Non-veg Foods</p>
+                {% endif %}
+                <p><b>Food Price: </b>{{x.price}}</p>
+                <p>
+                    <a href="/addtocart/{{x.id}}" class="btn btn-primary">Add to Cart</a>
+                    <a href="/viewcart" class="btn btn-primary">View Cart</a>
+                    <a href="/Menu" class="btn btn-primary">Shop More</a>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+</div><!--2nd row end or main section end-->
+
+{% endblock %}
